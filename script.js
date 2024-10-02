@@ -1,6 +1,3 @@
-// script.js
-
-// Possible moves
 const moves = ['Rock', 'Paper', 'Scissors'];
 
 // Player and computer scores
@@ -16,8 +13,8 @@ const cMoveImg = document.getElementById('c-move');
 // Images for moves
 const moveImages = {
   'Rock': 'images/Rock.png',
-  'Paper': 'images/paper.png',
-  'Scissors': 'images/Scissor.png'
+  'Paper': 'images/Paper.png', // Ensure 'Paper.png' matches the actual file name
+  'Scissors': 'images/Scissors.png' // Ensure 'Scissors.png' matches the actual file name
 };
 
 // Event listener for player move selection
