@@ -14,7 +14,7 @@ const cMoveImg = document.getElementById('c-move');
 const moveImages = {
   'Rock': 'images/Rock.png',
   'Paper': 'images/Paper.png', // Ensure 'Paper.png' matches the actual file name
-  'Scissors': 'images/Scissors.png' // Ensure 'Scissors.png' matches the actual file name
+  'Scissors': 'images/Scissor.png' // Ensure 'Scissors.png' matches the actual file name
 };
 
 // Event listener for player move selection
