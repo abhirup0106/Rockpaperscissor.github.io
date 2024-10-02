@@ -15,9 +15,9 @@ const cMoveImg = document.getElementById('c-move');
 
 // Images for moves
 const moveImages = {
-  'Rock': 'images\Rock.png',
-  'Paper': 'images\paper.png',
-  'Scissors': 'images\Scissor.png'
+  'Rock': 'images/Rock.png',
+  'Paper': 'images/paper.png',
+  'Scissors': 'images/Scissor.png'
 };
 
 // Event listener for player move selection
