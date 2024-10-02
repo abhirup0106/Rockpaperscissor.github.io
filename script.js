@@ -13,7 +13,7 @@ const cMoveImg = document.getElementById('c-move');
 // Images for moves
 const moveImages = {
   'Rock': 'images/Rock.png',
-  'Paper': 'images/Paper.png', // Ensure 'Paper.png' matches the actual file name
+  'Paper': 'images/paper.png', // Ensure 'Paper.png' matches the actual file name
   'Scissors': 'images/Scissor.png' // Ensure 'Scissors.png' matches the actual file name
 };
 
