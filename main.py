@@ -33,19 +33,19 @@ class RockPaperScissorsGame:
 
     def load_images(self):
         # Load and resize images
-        self.default_image = self.load_and_resize_image("default.jpeg", (300, 300))
-        self.default_image_flipped = self.load_and_resize_image("default.jpeg", (300, 300), flip=True)
+        self.default_image = self.load_and_resize_image("images\default.jpeg", (300, 300))
+        self.default_image_flipped = self.load_and_resize_image("images\default.jpeg", (300, 300), flip=True)
 
-        self.rock_image = self.load_and_resize_image("rock.jpeg", (300, 300))
-        self.rock_image_flipped = self.load_and_resize_image("rock.jpeg", (300, 300), flip=True)
+        self.rock_image = self.load_and_resize_image("images\rock.jpeg", (300, 300))
+        self.rock_image_flipped = self.load_and_resize_image("images\rock.jpeg", (300, 300), flip=True)
 
-        self.paper_image = self.load_and_resize_image("paper.jpeg", (300, 300))
-        self.paper_image_flipped = self.load_and_resize_image("paper.jpeg", (300, 300), flip=True)
+        self.paper_image = self.load_and_resize_image("images\paper.jpeg", (300, 300))
+        self.paper_image_flipped = self.load_and_resize_image("images\paper.jpeg", (300, 300), flip=True)
 
-        self.scissor_image = self.load_and_resize_image("scissor.jpeg", (300, 300))
-        self.scissor_image_flipped = self.load_and_resize_image("scissor.jpeg", (300, 300), flip=True)
+        self.scissor_image = self.load_and_resize_image("images\scissor.jpeg", (300, 300))
+        self.scissor_image_flipped = self.load_and_resize_image("images\scissor.jpeg", (300, 300), flip=True)
 
-        self.selection_image = self.load_and_resize_image("selection.jpg", (300, 130))
+        self.selection_image = self.load_and_resize_image("images\selection.jpg", (300, 130))
 
     def load_and_resize_image(self, path, size, flip=False):
         try:
