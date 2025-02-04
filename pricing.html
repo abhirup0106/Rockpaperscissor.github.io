@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Pricing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 1rem;
+    color: white;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #333;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Pricing Section */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.pricing-plan {
+    background: white;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.pricing-plan h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-plan p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: #218838;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .pricing-plan {
+        width: 90%;
+    }
+    .button {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Pricing</h1>
+        <button class="menu-toggle">☰</button>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="pricing-container">
+        <div class="pricing-plan">
+            <h2>Basic</h2>
+            <p>$10/month</p>
+            <a href="#" class="button">Sign Up</a>
+        </div>
+        <div class="pricing-plan">
+            <h2>Standard</h2>
+            <p>$20/month</p>
+            <a href="#" class="button">Sign Up</a>
+        </div>
+        <div class="pricing-plan">
+            <h2>Premium</h2>
+            <p>$30/month</p>
+            <a href="#" class="button">Sign Up</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+    });
+});
+    </script>
+
+</body>
+</html>
