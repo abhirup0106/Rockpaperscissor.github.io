@@ -561,7 +561,56 @@
 		border-radius: 10px;  /* Rounded corners */
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 	}
-	
+	       .menu {
+            display: none;
+            flex-direction: column;
+            background-color: #444;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+	  .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .menu a:hover {
+            background-color: #555;
+        }
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+	        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+            .menu {
+                display: flex;
+                position: static;
+                background: none;
+                flex-direction: row;
+                width: auto;
+                box-shadow: none;
+            }
+            .menu a {
+                padding: 10px 20px;
+            }
+        }
 	
 	/* Heading styles */
 	#contact h2 {
