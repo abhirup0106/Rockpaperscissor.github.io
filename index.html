@@ -5,209 +5,745 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Innovative Assignment & Project Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+<style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url('/static/images/Leonardo_Phoenix_10_A_cinematic_keyframe_depicting_a_person_wi_0\ \(1\).jpg');
+    background-size: cover; /* Ensures the image covers the entire viewport */
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9;
+    transition: background-color 0.3s ease-in-out;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header {
+    background: #00000000;
+    color: white;
+    padding: 2rem 0;
+    text-align: right;
+    
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: right;
+}
+
+nav ul li {
+    margin: 0 1rem;
+    position: relative;
+    margin-top: -25px;
+}
+
+nav ul li a {
+    color: rgb(139, 193, 39);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: cursive;
+    
+}
+nav ul li a:hover {
+    color: rgb(237, 17, 189);
+    
+}
+/* Highlight the active link */
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a.active {
+  color: #fff;
+  background-color: #007BFF;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#services {
+    margin-bottom: 10px;
+    padding: 20px; /* Add padding around the container */
+    margin: 20px auto; /* Center the container */
+    max-width: 800px; /* Set a maximum width for the container */
+}
+
+.services-box {
+    margin-bottom: 10px;
+    border: 2px solid #ddd; /* Add a light border */
+    border-radius: 10px; /* Round the corners */
+    background-color: #09080840; /* Light background color */
+    padding: 20px; /* Space inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center-align text within the box */
+}
+
+.services-box h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: 700;
+    font-size: 24px;
+    color: #333;
+}
+
+.services-box ul {
+    text-align: center; /* Align bullet points to the left */
+    margin: 0;
+}
+
+.services-box li {
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 20px;
+    color: #070000;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tabs button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+}
+
+.tabs button:hover {
+    background-color: #45a049;
+}
+
+.tabs button.active {
+    background-color: #45a049;
+}
+
+/* Section */
+.section {
+    display: none;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Pricing Form */
+
+/* Centering content in #pricing */
+#pricing {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 85vh; /* Ensure it takes full height of the viewport */
+    padding: 20px;
+}
+
+.container {
+    text-align: center; /* Center the text inside the container */
+    max-width: 800px; /* Optional: Set a max width to avoid the content being too wide */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+     margin-bottom: 50px;
+    
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    
+}
+
+select, input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #f0f40c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e55b00;
+}
+
+/* Fixed size and scrollable form container */
+/* Fixed size with scrollable content */
+#pricing-form-container {
+    display: block;
+    width: 100%;
+    max-width: 600px; /* Set a maximum width for the form */
+    max-height: 350px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+    padding: 20px;
+    margin-top: 15px;
+    border: 1px solid #cccccc3f;
+    border-radius: 10px;
+    background-color: #ffffff3a;
+    color: #fdfcfc;
+}
+
+#price-table {
+    display: none;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+#price-table h2{
+color:#fafaf5;
+}
+
+/* Table styling within the scrollable area */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #1f1d1d8e;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #1f1d1d8e;
+}
+td{
+    background-color: #1f1d1d8e; 
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Make sure the form inputs don't overflow */
+select, input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    #pricing {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+#pricing form {
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: left;
+    background-color: #0f0f0f0d;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #45a049;
+}
+
+/* Testimonials */
+blockquote {
+    font-style: italic;
+    background: #fff;
+    border-left: 5px solid #4CAF50;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 25px;
+    height:10vh;
+}
+
+footer p {
+    margin: 0;
+}
+::selection{
+    background: #fa4299;
+    color: #fff;
+  }
+  /* Additional styling for company name */
+.logo {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 280px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: cursive;
+    display: flex;
+    gap: 2px;
+  }
+  
+  .logo span {
+    font-weight: 700;
+  }
+  
+  /* Assign colors to each letter */
+  .logo span:nth-child(1) { color: #FF0000; } /* A */
+  .logo span:nth-child(2) { color: #FF7F00; } /* s */
+  .logo span:nth-child(3) { color: #FFFF00; } /* s */
+  .logo span:nth-child(4) { color: #00FF00; } /* i */
+  .logo span:nth-child(5) { color: #00FFFF; } /* g */
+  .logo span:nth-child(6) { color: #0000FF; } /* n */
+  .logo span:nth-child(7) { color: #8A2BE2; } /* m */
+  .logo span:nth-child(8) { color: #FF1493; } /* e */
+  .logo span:nth-child(9) { color: #4B0082; } /* n */
+  .logo span:nth-child(10) { color: #FF4500; } /* t */
+  .logo span:nth-child(11) { color: #FFD700; } /* W */
+  .logo span:nth-child(12) { color: #32CD32; } /* a */
+  .logo span:nth-child(13) { color: #1E90FF; } /* a */
+  .logo span:nth-child(14) { color: #FF69B4; } /* l */
+  .logo span:nth-child(15) { color: #00CED1; } /* a */
+  .logo span:nth-child(16) { color: #DC143C; } /* a */
+
+  .wrapper{
+    overflow: hidden;
+    max-width: 390px;
+    background: #ffffff57;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    margin-left:420px;
+    margin-bottom: 10px;
+  }
+  .wrapper .title-text{
+    display: flex;
+    width: 200%;
+  }
+  .wrapper .title{
+    width: 50%;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  .wrapper .slide-controls{
+    position: relative;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0 10px 0;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+  }
+  .slide-controls .slide{
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.6s ease;
+  }
+  .slide-controls label.signup{
+    color: #000;
+  }
+  .slide-controls .slider-tab{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  input[type="radio"]{
+    display: none;
+  }
+  #signup:checked ~ .slider-tab{
+    left: 50%;
+  }
+  #signup:checked ~ label.signup{
+    color: #fff;
+    cursor: default;
+    user-select: none;
+  }
+  #signup:checked ~ label.login{
+    color: #000;
+  }
+  #login:checked ~ label.signup{
+    color: #000;
+  }
+  #login:checked ~ label.login{
+    cursor: default;
+    user-select: none;
+  }
+  .wrapper .form-container{
+    width: 100%;
+    overflow: hidden;
+  }
+  .form-container .form-inner{
+    display: flex;
+    width: 200%;
+  }
+  .form-container .form-inner form{
+    width: 50%;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  .form-inner form .field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .form-inner form .field input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+  .form-inner form .field input:focus{
+    border-color: #fc83bb;
+    /* box-shadow: inset 0 0 3px #fb6aae; */
+  }
+  .form-inner form .field input::placeholder{
+    color: #999;
+    transition: all 0.3s ease;
+  }
+  form .field input:focus::placeholder{
+    color: #b3b3b3;
+  }
+  .form-inner form .pass-link{
+    margin-top: 5px;
+  }
+  .form-inner form .signup-link{
+    text-align: center;
+    margin-top: 30px;
+  }
+  .form-inner form .pass-link a,
+  .form-inner form .signup-link a{
+    color: #fa4299;
+    text-decoration: none;
+  }
+  .form-inner form .pass-link a:hover,
+  .form-inner form .signup-link a:hover{
+    text-decoration: underline;
+  }
+  form .btn{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  form .btn .btn-layer{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #a445b2, #fa4299, #a445b2, #fa4299);
+    border-radius: 5px;
+    transition: all 0.4s ease;;
+  }
+  form .btn:hover .btn-layer{
+    left: 0;
+  }
+  form .btn input[type="submit"]{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .notebook {
+            width: 700px;
+            height: 400px;  
+            margin-left: 250px;
+            background: #f5f5f598;
+            border: 15px solid #d2a679;
+            position: relative;
             overflow: hidden;
-            color: #333;
-            background: url('/images/Leonardo_Phoenix_10_A_cinematic_keyframe_depicting_a_person_wi_0\ \(1\).jpg') no-repeat center center/cover;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #33333376;
-            padding: 15px;
-            color: white;
-        }
-        .menu {
-            display: none;
-            flex-direction: column;
-            background-color: #444;
-            position: absolute;
-            top: 60px;
-            right: 10px;
-            width: 150px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .menu a {
-            padding: 10px;
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-        .menu a:hover {
-            background-color: #555;
-        }
-        .menu-toggle {
-            font-size: 24px;
-            cursor: pointer;
-        }
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
-            .menu {
-                display: flex;
-                position: static;
-                background: none;
-                flex-direction: row;
-                width: auto;
-                box-shadow: none;
-            }
-            .menu a {
-                padding: 10px 20px;
-            }
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 10px;
+        .notebook::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 100%;
+            background: repeating-linear-gradient(#444 0px, #444 5px, transparent 5px, transparent 20px);
         }
-        nav ul li a {
-            color: rgb(139, 193, 39);
-            text-decoration: none;
-            font-weight: bold;
-            font-family: cursive;
+
+        .lines {
+            position: absolute;
+            top: 0;
+            left: 50px;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(#3796f5 0px, #d8eafc 2px, transparent 2px, transparent 30px);
         }
-        nav ul li a:hover {
-            color: rgb(237, 17, 189);
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-        }
-        .services-box {
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(9, 8, 8, 0.25);
-        }
+
         .tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .tabs button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
-        }
-        .tabs button:hover {
-            background: #45a049;
-        }
-        .section {
-            display: none;
-            padding: 20px;
-            text-align: center;
-        }
-        #pricing {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
-        form {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        form input, form select, form textarea, form button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        form button {
-            background: #f0f40c;
-            color: white;
-            cursor: pointer;
-        }
-        form button:hover {
-            background: #e55b00;
-        }
-        footer {
-            background: #333;
+
+        .tab {
+            width: 80px;
+            height: 30px;
+            background-color: #9e6b4a;
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 180px;
+            line-height: 30px;
+            margin: 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
         }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
+
+        .tab:hover {
+            background-color: #b47d59;
         }
-    </style>
+
+        .content {
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            right: 50px;
+            bottom: 50px;
+            background: rgba(255, 255, 255, 0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+            padding: 20px;
+            font-family: cursive;
+            border-radius: 8px;
+        }
+        .content ul p {
+        opacity: 0;
+        animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    .content ul p:nth-child(1) {
+        animation-delay: 0.3s;
+    }
+    .content ul p:nth-child(2) {
+        animation-delay: 0.6s;
+    }
+    .content ul p:nth-child(3) {
+        animation-delay: 0.9s;
+    }
+    .content ul p:nth-child(4) {
+        animation-delay: 1.2s;
+    }
+    .content ul p:nth-child(5) {
+        animation-delay: 1.5s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+        .content h2 {
+            font-size: 40px;
+            text-align: center;
+            margin: 0;
+            margin-top:-58px;
+        }
+
+        .content p {
+            font-size: 20px;
+            text-align: center;
+            margin-top: 10px;
+        }
+            /* Paper Plane Animation */
+
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1>Your Logo</h1>
-        <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
-        <div class="menu" id="menu">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="#contact">Contact</a>
+    <header>
+        <div class="logo">
+            
+            <span>A</span>
+            <span>s</span>
+            <span>s</span>
+            <span>i</span>
+            <span>g</span>
+            <span>n</span>
+            <span>m</span>
+            <span>e</span>
+            <span>n</span>
+            <span>t</span>
+            <span>W</span>
+            <span>a</span>
+            <span>a</span>
+            <span>l</span>
+            <span>a</span>
+            <span>a</span>
         </div>
-    </div>
-
-    <div class="container" id="services">
-        <div class="services-box">
-            <h2>Our Unique Services</h2>
-            <ul>
-                <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Tailor-Made School Assignments</p>
-                <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Professional College Projects</p>
-                <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Affordable Pricing</p>
-                <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Interactive Programming Assignments</p>
-                <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;User Friendly </p>
+    <br><br>
+        <nav>
+          <ul class="nav-links">
+              <li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+              <li><a href="{{ url_for('pricing') }}" class="{% if request.endpoint == 'pricing' %}active{% endif %}">Order Placing</a></li>
+              {% if 'user' not in session %}
+              <!-- Show Login button only if user is not logged in -->
+              <li><a href="{{ url_for('login') }}" class="{% if request.endpoint == 'login' %}active{% endif %}">Login</a></li>
+              {% else %}
+              <!-- Show Logout button when user is logged in -->
+              <li><a href="{{ url_for('logout') }}" class="{% if request.endpoint == 'logout' %}active{% endif %}">Logout</a></li>
+              {% endif %}
+              <li><a href="{{ url_for('contact') }}" class="{% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
+              <li><a href="{{ url_for('sample') }}" class="{% if request.endpoint == 'sample' %}active{% endif %}">Sample</a></li>
             </ul>
-        </div>
-    </div>
-   
-    </div>
+      </nav>
+    
+    </header>
+
+    <div class="notebook">
+  
+          <div class="content">
+              <h2>Our Unique Services</h2>
+              <ul>
+                  <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Tailor-Made School Assignments</p>
+                  <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Professional College Projects</p>
+                  <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Affordable Pricing</p>
+                  <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;Interactive Programming Assignments</p>
+                  <p><img src="/static/images/405496874_b3e08104-5ec3-4ccf-b5ea-a896d67e5837-removebg-preview.png" height="30px" width="30px">&nbsp;User Friendly </p>
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="paper-plane"></div>
+  <div class="paper-plane"></div>
+  <div class="paper-plane"></div>
+
+    
+    
+
     <footer>
-        <p>&copy; 2025 Innovative Assignment Solutions</p>
+        <div class="container">
+            <p>&copy; 2024 Innovative Assignment & Project Solutions. Crafted for excellence.</p>
+        </div>
     </footer>
-
     <script>
-         function toggleMenu() {
-            var menu = document.getElementById("menu");
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
-        }
+         // JavaScript to generate random positions for paper planes
+    document.querySelectorAll('.paper-plane').forEach(plane => {
+        let randomX = (Math.random() * 100) - 50;  // Random horizontal position between -50vw and 50vw
+        let randomY = (Math.random() * -100) - 50; // Random vertical position between -50vh and -100vh (above the screen)
 
-    </script>
+        // Apply random positions using CSS variables
+        plane.style.setProperty('--random-x', `${randomX}vw`);
+        plane.style.setProperty('--random-y', `${randomY}vh`);
+
+        // Optionally, add random animation delays to each plane for variation
+        let randomDelay = Math.random() * 5;  // Random delay between 0 and 5 seconds
+        plane.style.animationDelay = `${randomDelay}s`;
+    });
+  </script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
