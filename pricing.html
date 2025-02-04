@@ -141,7 +141,7 @@ button:hover {
 #pricing-form-container {
     display: block;
     width: 100%;
-    max-width: 600px; /* Set a maximum width for the form */
+    max-width: 600px; /* Set amaximum width for the form */
     max-height: 350px; /* Set a fixed height for the container */
     overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
     padding: 20px;
@@ -527,10 +527,10 @@ blockquote {
         <h1>Pricing</h1>
         <button class="menu-toggle">☰</button>
         <ul class="nav-links">
-			<li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
-			<li><a href="{{ url_for('pricing') }}" class="{% if request.endpoint == 'pricing' %}active{% endif %}">Order Placing</a></li>
+			<li><a href="index.html" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+			<li><a href="pricing.html" class="{% if request.endpoint == 'pricing' %}active{% endif %}">Order Placing</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="{{ url_for('contact') }}" class="{% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
+            <li><a href="contact.html" class="{% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
         </ul>
     </nav>
 
