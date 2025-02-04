@@ -47,6 +47,46 @@
             font-size: 1.3rem;
             margin: 0.5rem 0;
         }
+ .menu {
+            display: none;
+            flex-direction: column;
+            background-color: #444;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+   .menu a:hover {
+            background-color: #555;
+        }
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+            .menu {
+                display: flex;
+                position: static;
+                background: none;
+                flex-direction: row;
+                width: auto;
+                box-shadow: none;
+            }
+  .menu a {
+                padding: 10px 20px;
+            }
+        }
 
         /* Navigation */
         nav ul {
@@ -350,33 +390,16 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <span>A</span>
-            <span>s</span>
-            <span>s</span>
-            <span>i</span>
-            <span>g</span>
-            <span>n</span>
-            <span>m</span>
-            <span>e</span>
-            <span>n</span>
-            <span>t</span>
-            <span>W</span>
-            <span>a</span>
-            <span>a</span>
-            <span>l</span>
-            <span>s</span>
-            <span>P</span>
-            <span>r</span>
-            <span>o</span>
-            <span>g</span>
-            <span>r</span>
-            <span>a</span>
-            <span>m</span>
-            <span>Solutions</span>
+ 
+ <div class="header">
+        <h1>AssignmentWalaa</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Order Placing</a>
+            <a href="contact.html">Contact</a>
         </div>
-    </header>
+    </div>
 
     <nav>
         <ul>
@@ -398,18 +421,18 @@
             </div>
         </section>
 
-        <section id="pricing">
-            <div class="pricing-form">
-                <h2>Get a Free Quote</h2>
-                <select>
-                    <option value="writing">Writing</option>
-                    <option value="research">Research</option>
-                </select>
-                <input type="text" placeholder="Your Name">
-                <textarea placeholder="Additional Information"></textarea>
-                <button>Submit</button>
-            </div>
-        </section>
+       
     </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
+
 </body>
 </html>
