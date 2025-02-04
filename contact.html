@@ -618,35 +618,15 @@
 
 <body>
 	<header>
-        <div class="logo">
-            <span>A</span>
-            <span>s</span>
-            <span>s</span>
-            <span>i</span>
-            <span>g</span>
-            <span>n</span>
-            <span>m</span>
-            <span>e</span>
-            <span>n</span>
-            <span>t</span>
-            <span>W</span>
-            <span>a</span>
-            <span>a</span>
-            <span>l</span>
-            <span>a</span>
-            <span>a</span>
-		</header>
-
-    <nav class="navbar">
-        <h1>Pricing</h1>
-        <button class="menu-toggle">☰</button>
-        <ul class="nav-links">
-			<li><a href="index.html" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
-			<li><a href="pricing.html" class="{% if request.endpoint == 'pricing' %}active{% endif %}">Order Placing</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="contact.html" class="{% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
-        </ul>
-    </nav>
+        <div class="header">
+        <h1>AssignmentWalaa</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Order Placing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
 </header>
 <div id="contact">
