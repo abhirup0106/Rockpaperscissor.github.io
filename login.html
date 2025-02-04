@@ -24,7 +24,7 @@
 
         .header {
             width: 100%;
-            background: #007bff;
+            background:black;
             color: white;
             padding: 10px 20px;
             display: flex;
@@ -376,10 +376,10 @@ button:hover {
         <h1>AssignmentWalaa</h1>
         <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
         <div class="menu" id="menu">
-            <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
-            <a href="/pricing">Order Placing</a>
-            <a href="/login">Login</a>
-            <a href="/contact">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Order Placing</a>
+            <a href="login.html">Login</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
 
