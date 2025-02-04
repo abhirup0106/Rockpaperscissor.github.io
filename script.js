@@ -1,101 +1,93 @@
-let playerScore = 0;
-let computerScore = 0;
-let roundsPlayed = 0;
-const maxRounds = 5;
+document.addEventListener("DOMContentLoaded", function() {
+    const proceedButton = document.getElementById("proceed-button");
+    const pricingFormContainer = document.getElementById("pricing-form-container");
+    const confirmButton = document.getElementById("Confirm");
+    const submitDetails = document.getElementById("submit-details");
+    const finalsubmitButton = document.getElementById('final-submit-button');
 
-function playGame(playerChoice) {
-    // Prevent playing more rounds than allowed
-    if (roundsPlayed >= maxRounds) {
-        displayGameOver();
-        return;
-    }
+    // Show the pricing form when Proceed button is clicked
+    proceedButton.addEventListener("click", function() {
+        const selectedCollege = document.getElementById("college").value;
 
-    // Computer randomly chooses rock, paper, or scissors
-    const choices = ['rock', 'paper', 'scissors'];
-    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
-    
-    // Determine the winner of the current round
-    const result = determineWinner(playerChoice, computerChoice);
+        if (selectedCollege) {
+            pricingFormContainer.style.display = "block";
+        } else {
+            alert("Please select a college to proceed.");
+        }
+    });
 
-    // Update scores based on the round result
-    updateScores(result);
+    // Calculate the price and show the pricing breakdown
+    document.getElementById("pricing-calculator").addEventListener("submit", function(event) {
+        event.preventDefault();
 
-    // Update the DOM with the current game status
-    updateDOM(playerChoice, computerChoice, result);
+        const type = document.getElementById("type").value;
+        const urgency = document.getElementById("urgency").value;
+        const asstype = document.getElementById("asstype").value;
+        const length = parseInt(document.getElementById("length").value);
+        const pages = parseInt(document.getElementById("pages").value);
+        const details = document.getElementById("details").value;
 
-    // Update rounds played
-    roundsPlayed++;
-    document.getElementById('roundCount').innerText = roundsPlayed;
+        let price = 0;
 
-    // Check if the game has ended
-    if (roundsPlayed >= maxRounds) {
-        displayGameOver();
-    }
-}
+        // Calculate based on word count
+        if (length <= 200 && pages == 1) {
+            price += 200; // Base price for 1 page (200 words)
+        } else {
+            // Calculate pages for word count
+            price += 200 + pages * 50; // Multiply by ₹40 per page
+        }
 
-// Determine the winner of the current round
-function determineWinner(player, computer) {
-    if (player === computer) {
-        return 'It\'s a draw!';
-    } else if (
-        (player === 'rock' && computer === 'scissors') ||
-        (player === 'paper' && computer === 'rock') ||
-        (player === 'scissors' && computer === 'paper')
-    ) {
-        return 'You won!';
-    } else {
-        return 'Computer won!';
-    }
-}
+        // Adjust based on urgency
+        if (urgency === "urgent") {
+            price *= 1.5; // 50% increase for urgent
+        } else if (urgency === "express") {
+            price *= 1.3; // 30% increase for express
+        } else {
+            price *= 1.1; // 10% increase for standard
+        }
 
-// Update scores based on the round result
-function updateScores(result) {
-    if (result === 'You won!') {
-        playerScore++;
-    } else if (result === 'Computer won!') {
-        computerScore++;
-    }
-    
-    // Update score display
-    document.getElementById('playerScore').innerText = playerScore;
-    document.getElementById('computerScore').innerText = computerScore;
-}
+        // Additional fees for extra details
+        let additionalFees = 0;
+        if (details) {
+            additionalFees = 0; // Fixed fee for additional details
+            price += additionalFees;
+        }
 
-// Update the DOM to display the current round result
-function updateDOM(playerChoice, computerChoice, result) {
-    document.getElementById('result').innerHTML = 
-        `You chose <strong>${playerChoice}</strong>.<br>` +
-        `Computer chose <strong>${computerChoice}</strong>.<br>` +
-        `<strong>${result}</strong>`;
-}
+        // Show the price breakdown in the table
+        document.getElementById("college-result").innerText = document.getElementById("college").value;
+        document.getElementById("type-result").innerText = type;
+        document.getElementById("urgency-result").innerText = urgency;
+        document.getElementById("asstype-result").innerText = asstype;
+        document.getElementById("length-result").innerText = length + " words";
+        document.getElementById("pages-result").innerText = pages + " pages";
+        document.getElementById("detail-result").innerText = details;
+        //document.getElementById("additional-fees").innerText = "₹" + additionalFees;
+        //document.getElementById("total-price").innerText = "₹" + price.toFixed(2); // Display total price with 2 decimal places
+        document.getElementById("price-table").style.display = "block";
+    });
 
-// Display game over message and results
-// Display game over message and results
-function displayGameOver() {
-  let finalResult = '';
+    // Show the email and phone number form when Confirm button is clicked
+    confirmButton.addEventListener("click", function() {
+        submitDetails.style.display = "block";
+    });
 
-  if (playerScore > computerScore) {
-      finalResult = "<strong>You are the overall winner!</strong>";
-  } else if (computerScore > playerScore) {
-      finalResult = "<strong>Computer is the overall winner!</strong>";
-  } else {
-      finalResult = "<strong>It's a draw overall!</strong>";
-  }
+});
 
-  document.getElementById('result').innerHTML += "<br><strong>Game Over!</strong><br>" + finalResult;
-  document.getElementById('restartButton').style.display = 'block'; // Show the restart button
-}
 
-// Restart the game
-function restartGame() {
-    playerScore = 0;
-    computerScore = 0;
-    roundsPlayed = 0;
-
-    // Reset the display
-    document.getElementById('playerScore').innerText = playerScore;
-    document.getElementById('computerScore').innerText = computerScore;
-    document.getElementById('result').innerText = '';
-    document.getElementById('roundCount').innerText = roundsPlayed;
-    document.getElementById('restartButton').style.display = 'none'; // Hide the restart button
-}
+const loginText = document.querySelector(".title-text .login");
+const loginForm = document.querySelector("form.login");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector("form .signup-link a");
+signupBtn.onclick = (() => {
+    loginForm.style.marginLeft = "-50%";
+    loginText.style.marginLeft = "-50%";
+});
+loginBtn.onclick = (() => {
+    loginForm.style.marginLeft = "0%";
+    loginText.style.marginLeft = "0%";
+});
+signupLink.onclick = (() => {
+    signupBtn.click();
+    return false;
+});
