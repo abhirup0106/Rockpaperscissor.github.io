@@ -3,69 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Optimized</title>
+    <title>AssignmentWala</title>
     <style>
-        /* Ensure responsive design */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            text-align: center;
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
+        header {
+            background: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #444;
+            color: white;
         }
-        nav ul li {
-            margin: 10px;
+        .menu {
+            display: flex;
+            gap: 20px;
         }
-        nav ul li a {
+        .menu a {
+            color: white;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
         }
-        @media (max-width: 768px) {
-            nav ul {
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .content {
+            padding: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            .menu {
+                display: none;
                 flex-direction: column;
-                align-items: center;
-            }
-            .container {
                 width: 100%;
-                padding: 10px;
+                background: #444;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                padding: 10px 0;
+                text-align: center;
+            }
+            .menu.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Payment</a></li>
-            </ul>
-        </nav>
+        <h1>AssignmentWala</h1>
     </header>
-    <div class="container">
-        <h1>Welcome</h1>
-        <p>This page has been optimized for mobile devices.</p>
+    <nav class="container">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+    <div class="container content">
+        <h2>Welcome to AssignmentWala</h2>
+        <p>Your one-stop solution for assignments!</p>
     </div>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".menu").classList.toggle("active");
+        }
+    </script>
 </body>
 </html>
