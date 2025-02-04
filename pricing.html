@@ -503,6 +503,57 @@ blockquote {
   border-radius: 4px;
   padding: 5px 10px;
 }
+	        .menu {
+            display: none;
+            flex-direction: column;
+            background-color: #444;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+	  .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px;
+            color: white;
+        }
+
+        .menu a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .menu a:hover {
+            background-color: #555;
+        }
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+	        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+            .menu {
+                display: flex;
+                position: static;
+                background: none;
+                flex-direction: row;
+                width: auto;
+                box-shadow: none;
+            }
+            .menu a {
+                padding: 10px 20px;
+            }
+        }
+
 </style>
 <body>
 	<header>
@@ -524,6 +575,15 @@ blockquote {
             <span>a</span>
             <span>a</span>
 		</header>
+<div class="header">
+        <h1>AssignmentWalaa</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Order Placing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
     <nav class="navbar">
         <h1>Pricing</h1>
@@ -682,6 +742,17 @@ blockquote {
 
 <script src="/static/js/script.js"></script>
 	<script>
+		    
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+ 
+
         
         document.getElementById('final-submit-button').addEventListener('click', function () {
           
