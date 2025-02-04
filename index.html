@@ -464,10 +464,10 @@
     </header>
     <nav>
         <ul>
-			<li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+			<li><a href="index.html" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="{{ url_for('pricing') }}" class="{% if request.endpoint == 'pricing' %}active{% endif %}">Order Placing</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="pricing.html" class="{% if request.endpoint == 'pricing' %}active{% endif %}">Order Placing</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
   
