@@ -25,7 +25,7 @@
         }
         body {
             background-image: url('\photo_1.jpg');
-            background-size: cover; /* Ensures the image covers the entire viewport */
+            background-size: fit; /* Ensures the image covers the entire viewport */
             background-attachment: fixed; 
             background-position: left;
             background-repeat: no-repeat;
@@ -108,10 +108,8 @@
         /* 🔹 Left Side: Image */
         .image-section {
             flex: 1;
-            background: url('\photo_1.jpg') no-repeat center center/cover;
-            background-attachment: fixed; 
-            background-position: left;
-            background-repeat: no-repeat;
+            background: url('\photo_1.jpg') no-repeat cover;
+             background-position: left;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,10 +119,7 @@
         #services {
             flex: 1;
             padding: 50px 20px;
-            background: url('\photo_2.jpg') no-repeat center center/cover;
-            background-attachment: fixed; 
-            background-position: center;
-            background-repeat: no-repeat;
+            background: url('\photo_2.jpg') no-repeat cover;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -212,8 +207,6 @@
             <a href="pricing.html">Order Placing</a>
             <a href="login.html">Login</a>
             <a href="contact.html">Contact</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="order.html">Order</a>
         </div>
     </div>
     <div class="main-container">
