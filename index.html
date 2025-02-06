@@ -8,8 +8,7 @@
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/styles.css">
     <style>
-        /* Global Styles */
-        * {
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -427,20 +426,27 @@
                 font-size: 15px;
             }
         }
+        /* View Samples Section */
+        .samples-table { width: 100%; margin: 20px 0; border-collapse: collapse; }
+        .samples-table td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        .samples-table img { width: 100%; max-width: 250px; border-radius: 5px; }
+
+        /* Contact Us Section */
+        .contact-form { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .contact-form input, .contact-form textarea, .contact-form button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; }
+        .contact-form button { background: #007BFF; color: white; border: none; cursor: pointer; }
+        .contact-form button:hover { background: #0056b3; }
     </style>
 </head>
 <body>
- 
- <div class="header">
-     <h1>ASSIGNMENTWAALA</h1>
+    <div class="header">
+        <h1>AssignmentWalaa</h1>
         <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
         <div class="menu" id="menu">
-            <a href="index.html">Home</a>
-            <a href="pricing.html">Order Placing</a>
-            <a href="login.html">Login</a>
-            <a href="contact.html">Contact</a>
-            <a href="dashboard.html">dashboard</a>
-            <a href="order.html">dashboard</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="/pricing">Order Placing</a>
+            <a href="/login">Login</a>
+            <a href="/contact">Contact</a>
         </div>
     </div>
 
@@ -449,27 +455,55 @@
             <div class="services-box">
                 <h2>Our Services</h2>
                 <ul>
-                    <li>Tailor-Made School Assignments</li>
-                    <li>Professional College Projects</li>
-                    <li>Affordable Pricing</li>
-                    <li>Interactive Programming Assignments</li>
-                    <li>User Friendly</li>
+                    <li>Assignment Writing</li>
+                    <li>Project Assistance</li>
+                    <li>Online Tutoring</li>
+                    <li>Research Paper Writing</li>
                 </ul>
             </div>
         </section>
 
-       
+        <!-- View Samples Section -->
+        <section id="view-samples">
+            <h2>View Samples</h2>
+            <table class="samples-table">
+                <tr>
+                    <td><img src="/static/images/sample1.jpg" alt="Sample 1"></td>
+                    <td><img src="/static/images/sample2.jpg" alt="Sample 2"></td>
+                    <td><img src="/static/images/sample3.jpg" alt="Sample 3"></td>
+                </tr>
+                <tr>
+                    <td><img src="/static/images/sample4.jpg" alt="Sample 4"></td>
+                    <td><img src="/static/images/sample5.jpg" alt="Sample 5"></td>
+                    <td><img src="/static/images/sample6.jpg" alt="Sample 6"></td>
+                </tr>
+                <tr>
+                    <td><img src="/static/images/sample7.jpg" alt="Sample 7"></td>
+                    <td><img src="/static/images/sample8.jpg" alt="Sample 8"></td>
+                    <td><img src="/static/images/sample9.jpg" alt="Sample 9"></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form action="/submit_contact" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
     </div>
+
     <script>
         function toggleMenu() {
             var menu = document.getElementById("menu");
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
+            menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
         }
     </script>
-
 </body>
 </html>
