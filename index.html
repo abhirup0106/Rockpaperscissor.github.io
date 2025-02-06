@@ -50,22 +50,21 @@
             display: flex;
             flex-direction: column;
         }
-
         .image-section {
     width: 100%;
     height: 100vh; /* Adjust as needed */
     background: url('\image4.jpg') no-repeat center center/cover;
-    background-position:left;
     position: relative;
+    padding: 20px;
 }
 
 /* Slogan Styling */
 .slogan {
     position: absolute;
-    top: 96%;
-    right: 5%;
+    top: 97%;
+    right: 10%;
     transform: translateY(-50%);
-    color: black;
+    color: rgb(2, 2, 2);
     font-size: 2rem;
     font-weight: bold;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
@@ -73,37 +72,18 @@
     animation: fadeInSlide 2s ease-in-out forwards;
 }
 
-/* Keyframes for Animation */
-@keyframes fadeInSlide {
-    0% {
-        opacity: 0;
-        transform: translateY(-50%) translateX(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .slogan {
-        font-size: 1.5rem;
-        right: 10%;
-        text-align: center;
-    }
-}
+/* Second Slogan */
 .slogan1 {
     position: absolute;
     top: 30%;
-    right: 5%;
+    right: 10%;
     transform: translateY(-50%);
-    color: black;
+    color: rgb(11, 11, 11);
     font-size: 2rem;
     font-weight: bold;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     opacity: 0;
-    animation: fadeInSlide 2s ease-in-out forwards;
+    animation: fadeInSlide 3s ease-in-out forwards;
 }
 
 /* Keyframes for Animation */
@@ -118,22 +98,43 @@
     }
 }
 
-/* Responsive Adjustments */
+/* Styling for Info List */
+.info-list {
+    position: absolute;
+    top: 65%;
+    right: 15%;
+    transform: translateY(-50%);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 2rem;
+    color: rgb(3, 3, 3);
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    animation: fadeInSlide 4s ease-in-out forwards;
+}
+
+.info-list li {
+    margin-bottom: 10px;
+}
+
+/* Hide the list on smaller screens */
 @media (max-width: 768px) {
-    .slogan1 {
-        font-size: 1.5rem;
-        right: 10%;
-        text-align: center;
+    .info-list {
+        display: none;
     }
 }
+
+
 /* Service Box Round Styling */
 .service-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%; /* Default size (4 boxes per row on larger screens) */
-    height: 30vh; /* Maintain aspect ratio */
+    width: 40%; /* Default size (4 boxes per row on larger screens) */
+    height: 20vh; /* Maintain aspect ratio */
     padding-bottom: 25%; /* Ensures a perfect circle (aspect ratio) */
     background-color: white;
     border-radius: 50%; /* Makes the box round */
@@ -247,7 +248,17 @@
         <div class="image-section">
             <div class="slogan">"Your Success, Our Commitment!"</div>
             <div class="slogan1">"Your Assignment, Our Headache!"</div>
+    
+            <!-- List of Points that shows only on PC -->
+            <ul class="info-list">
+                <li>High-Quality Writing</li>
+                <li>On-Time Delivery</li>
+                <li>Affordable Prices</li>
+                <li>Expert Tutors</li>
+            </ul>
         </div>
+    </div>
+    
 
         <!-- Services Section -->
         <section id="services">
