@@ -3,493 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovative Assignment & Project Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>AssignmentWalaa</title>
     <style>
-       * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background-image: url('\image4.jpg');
-            background-size: fit; /* Ensures the image covers the entire viewport */
-            background-attachment: fixed; 
-            background-position: left;
-            background-repeat: no-repeat;
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f9;
-            transition: background-color 0.3s ease-in-out;
-            justify-content: center;
-           
+            font-family: Arial, sans-serif;
         }
 
-        header {
-            background: #00000000;
-            color: white;
-            padding: 2rem 0;
-            text-align: right;
-        }
-  .header {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 20px;
             background-color: #333;
-            padding: 15px;
             color: white;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            margin: 0.5rem 0;
-        }
- .menu {
+        .menu {
             display: none;
             flex-direction: column;
-            background-color: #444;
+            background: #444;
             position: absolute;
-            top: 60px;
             right: 10px;
-            width: 150px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .menu a {
+            top: 50px;
             padding: 10px;
+        }
+
+        .menu a {
             color: white;
             text-decoration: none;
+            padding: 10px;
             display: block;
         }
-   .menu a:hover {
-            background-color: #555;
-        }
+
         .menu-toggle {
             font-size: 24px;
             cursor: pointer;
         }
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
-            .menu {
-                display: flex;
-                position: static;
-                background: none;
-                flex-direction: row;
-                width: auto;
-                box-shadow: none;
-            }
-  .menu a {
-                padding: 10px 20px;
-            }
-        }
-
-        /* Navigation */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-            display: flex;
-            justify-content: right;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-            position: relative;
-            margin-top: -25px;
-        }
-
-        nav ul li a {
-            color: rgb(139, 193, 39);
-            text-decoration: none;
-            font-weight: bold;
-            font-family: cursive;
-        }
-
-        nav ul li a:hover {
-            color: rgb(237, 17, 189);
-        }
-
-        /* Highlight the active link */
-        .nav-links a {
-            text-decoration: none;
-            color: #000;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .nav-links a.active {
-            color: #fff;
-            background-color: #007BFF;
-            border-radius: 4px;
-            padding: 5px 10px;
-        }
-
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        #services {
-            margin-bottom: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-        }
-.logo {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 280px;
-    font-size: 50px;
-    font-weight: bold;
-    font-family: cursive;
-    display: flex;
-    gap: 2px;
-  }
-  
-  .logo span {
-    font-weight: 700;
-  }
-  
-  /* Assign colors to each letter */
-  .logo span:nth-child(1) { color: #FF0000; } /* A */
-  .logo span:nth-child(2) { color: #FF7F00; } /* s */
-  .logo span:nth-child(3) { color: #FFFF00; } /* s */
-  .logo span:nth-child(4) { color: #00FF00; } /* i */
-  .logo span:nth-child(5) { color: #00FFFF; } /* g */
-  .logo span:nth-child(6) { color: #0000FF; } /* n */
-  .logo span:nth-child(7) { color: #8A2BE2; } /* m */
-  .logo span:nth-child(8) { color: #FF1493; } /* e */
-  .logo span:nth-child(9) { color: #4B0082; } /* n */
-  .logo span:nth-child(10) { color: #FF4500; } /* t */
-  .logo span:nth-child(11) { color: #FFD700; } /* W */
-  .logo span:nth-child(12) { color: #32CD32; } /* a */
-  .logo span:nth-child(13) { color: #1E90FF; } /* a */
-  .logo span:nth-child(14) { color: #FF69B4; } /* l */
-  .logo span:nth-child(15) { color: #00CED1; } /* a */
-  .logo span:nth-child(16) { color: #DC143C; } /* a */
-
-        .services-box {
-            margin-bottom: 10px;
-            
-            width:100%;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            background-color: #09080840;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .services-box h2 {
-            margin-bottom: 20px;
-            font-weight: 700;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .services-box ul {
-            text-align: center;
-            margin: 0;
-        }
-
-        .services-box li {
-            margin-bottom: 10px;
-            font-size: 20px;
-            color: #070000;
-        }
-
-        /* Tabs */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .tabs button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            cursor: pointer;
-            font-size: 1.1rem;
-            margin: 0 1rem;
-            border-radius: 5px;
-        }
-
-        .tabs button:hover {
-            background-color: #45a049;
-        }
-
-        .tabs button.active {
-            background-color: #45a049;
-        }
-
-        /* Section */
-        .section {
-            display: none;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        /* Pricing Form */
-        #pricing {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 85vh;
-            padding: 20px;
-        }
 
         .container {
-            text-align: center;
-            max-width: 800px;
-            width: 100%;
-            margin-bottom: 50px;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        select, input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: #f0f40c;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #e55b00;
-        }
-
-        #pricing-form-container {
-            display: block;
-            width: 100%;
-            max-width: 600px;
-            max-height: 350px;
-            overflow-y: auto;
-            padding: 20px;
-            margin-top: 15px;
-            border: 1px solid #cccccc3f;
-            border-radius: 10px;
-            background-color: #ffffff3a;
-            color: #fdfcfc;
-        }
-
-        #price-table {
-            display: none;
-            margin-top: 20px;
-            overflow-y: auto;
-        }
-
-        #price-table h2 {
-            color: #fafaf5;
-        }
-
-        table {
-            width: 100%;
-            margin-top: 10px;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #1f1d1d8e;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #1f1d1d8e;
-        }
-
-        td {
-            background-color: #1f1d1d8e;
-        }
-
-        /* Make sure the form inputs don't overflow */
-        select, input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        /* Responsive design adjustments */
-        @media (max-width: 768px) {
-            header {
-                text-align: center;
-            }
-
-            .logo {
-                margin-top: 20px;
-                margin-left: 0;
-                font-size: 40px;
-            }
-
-            nav ul {
-                display: block;
-                text-align: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .wrapper {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            .tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .tabs button {
-                width: 100%;
-                margin: 10px 0;
-            }
-
-            .notebook {
-                width: 100%;
-                margin-left: 0;
-                margin-top: 30px;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .container {
-                width: 90%;
-            }
-
-            #pricing {
-                flex-direction: column;
-                height: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .container {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .tabs button {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .notebook {
-                width: 100%;
-                margin-left: 0;
-            }
-
-            .content h2 {
-                font-size: 30px;
-            }
-
-            .content p {
-                font-size: 16px;
-            }
-
-            .form-inner form .field input {
-                font-size: 15px;
-            }
-        }
-        #services {
-            flex: 0;
-            padding: 50px 20px;
-           margin-left: 60%;
-            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: right;
         }
+
+        .image-section {
+    width: 100%;
+    height: 100vh; /* Adjust as needed */
+    background: url('\image4.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Slogan Styling */
+.slogan {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    animation: fadeInSlide 2s ease-in-out forwards;
+}
+
+/* Keyframes for Animation */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .slogan {
+        font-size: 1.5rem;
+        right: 10%;
+        text-align: center;
+    }
+}
+.slogan1 {
+    position: absolute;
+    top: 70%;
+    right: 5%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    animation: fadeInSlide 2s ease-in-out forwards;
+}
+
+/* Keyframes for Animation */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .slogan1 {
+        font-size: 1.5rem;
+        right: 10%;
+        text-align: center;
+    }
+}
+/* Service Box Round Styling */
+.service-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%; /* Default size (4 boxes per row on larger screens) */
+    height: 30vh; /* Maintain aspect ratio */
+    padding-bottom: 25%; /* Ensures a perfect circle (aspect ratio) */
+    background-color: white;
+    border-radius: 50%; /* Makes the box round */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevents content overflow */
+    text-align: center;
+    margin: 10px; /* Spacing between circles */
+}
+
+/* Icon Styling for Round Box */
+.service-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Service Text */
+.service-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Grid Layout for Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust based on screen size */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .service-box {
+        width: 45%; /* Two boxes per row on mobile */
+        padding-bottom: 45%; /* Maintain aspect ratio for circle */
+    }
+}
+
+/* Media Query for Smaller Mobile */
+@media (max-width: 480px) {
+    .service-box {
+        width: 80%; /* One box per row on very small screens */
+        padding-bottom: 80%; /* Maintain aspect ratio */
+    }
+}
+
+
+
+
+        #services {
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
         }
+
         .service-box {
-            background: rgba(255, 221, 0, 0.253); /* Yellow with transparency */
-            border-radius: 10px;
-            padding: 20px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
+            padding: 10px;
             background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
         }
 
-        .service-icon img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .samples-table {
+            width: 100%;
+            text-align: center;
         }
 
-        .service-text {
-            font-size: 16px;
-            font-weight: bold;
-            color: #333;
+        .samples-table img {
+            width: 100px;
+            height: 100px;
         }
-        /* View Samples Section */
-        .samples-table { width: 100%; margin: 20px 0; border-collapse: collapse; }
-        .samples-table td { padding: 10px; border: 1px solid #ddd; text-align: center; }
-        .samples-table img { width: 100%; max-width: 250px; border-radius: 5px; }
 
-        /* Contact Us Section */
-        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu {
+                width: 100%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .samples-table img {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>AssignmentWalaa</h1>
         <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
@@ -501,11 +241,14 @@
         </div>
     </div>
 
-    <div class="main-container">
-        <!-- 🔹 Full-Screen Image Section (Left Side on Laptop, First on Mobile) -->
-        <div class="image-section"></div>
+    <div class="container">
+        <!-- Image Section -->
+        <div class="image-section">
+            <div class="slogan">"Your Success, Our Commitment!"</div>
+            <div class="slogan1">"Your Assignment, Our Headache!"</div>
+        </div>
 
-        <!-- 🔹 Services Section with Background Image -->
+        <!-- Services Section -->
         <section id="services">
             <h2>Our Services</h2>
             <div class="services-grid">
@@ -515,21 +258,21 @@
                     </div>
                     <div class="service-text">Assignment Writing</div>
                 </div>
-
+        
                 <div class="service-box">
                     <div class="service-icon">
                         <img src="/static/icons/project.png" alt="Project Assistance">
                     </div>
                     <div class="service-text">Project Assistance</div>
                 </div>
-
+        
                 <div class="service-box">
                     <div class="service-icon">
                         <img src="/static/icons/tutoring.png" alt="Online Tutoring">
                     </div>
                     <div class="service-text">Online Tutoring</div>
                 </div>
-
+        
                 <div class="service-box">
                     <div class="service-icon">
                         <img src="/static/icons/research.png" alt="Research Paper Writing">
@@ -538,8 +281,7 @@
                 </div>
             </div>
         </section>
-    </div>
-
+        
 
         <!-- View Samples Section -->
         <section id="view-samples">
@@ -548,29 +290,21 @@
                 <tr>
                     <td><img src="/static/images/sample1.jpg" alt="Sample 1"></td>
                     <td><img src="/static/images/sample2.jpg" alt="Sample 2"></td>
+                </tr>
+                <tr>
                     <td><img src="/static/images/sample3.jpg" alt="Sample 3"></td>
-                </tr>
-                <tr>
                     <td><img src="/static/images/sample4.jpg" alt="Sample 4"></td>
-                    <td><img src="/static/images/sample5.jpg" alt="Sample 5"></td>
-                    <td><img src="/static/images/sample6.jpg" alt="Sample 6"></td>
-                </tr>
-                <tr>
-                    <td><img src="/static/images/sample7.jpg" alt="Sample 7"></td>
-                    <td><img src="/static/images/sample8.jpg" alt="Sample 8"></td>
-                    <td><img src="/static/images/sample9.jpg" alt="Sample 9"></td>
                 </tr>
             </table>
         </section>
-
-        <!-- Contact Us Section -->
-    
+    </div>
 
     <script>
         function toggleMenu() {
             var menu = document.getElementById("menu");
-            menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
         }
     </script>
+
 </body>
 </html>
