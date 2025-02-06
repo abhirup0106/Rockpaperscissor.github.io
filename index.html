@@ -54,7 +54,7 @@
     width: 100%;
     height: 100vh; /* Adjust as needed */
     background: url('\image4.jpg') no-repeat center center/cover;
-            background-position:left;
+    background-position: left;
     position: relative;
     padding: 20px;
 }
@@ -136,7 +136,7 @@
 /* Media Query for Mobile */
 @media (max-width: 768px) {
     .service-box {
-        width: 45%; /* Two boxes per row on mobile */
+        width: 50%; /* Two boxes per row on mobile */
         padding-bottom: 45%; /* Maintain aspect ratio for circle */
     }
 }
@@ -187,7 +187,7 @@
     }
 
     .service-box {
-        width: 40%; /* 40% width on mobile for 2 items per row */
+        width: 50%; /* 40% width on mobile for 2 items per row */
         padding-bottom: 40%; /* Maintain aspect ratio */
     }
 }
@@ -305,14 +305,10 @@
     </div>
 
     <script>
-         function toggleMenu() {
+        function toggleMenu() {
             var menu = document.getElementById("menu");
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
-        }
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
     </script>
 
 </body>
