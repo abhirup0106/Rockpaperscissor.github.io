@@ -129,69 +129,95 @@
     }
 }
 
-
+/* Grid Layout for Services Section */
 
 /* Grid Layout for Services Section */
 
 /* Media Query for Mobile */
-@media (max-width: 768px) {
-    .service-box {
-        width: 50%; /* Two boxes per row on mobile */
-        padding-bottom: 45%; /* Maintain aspect ratio for circle */
-    }
-}
-
-/* Grid Layout for Services Section */
-.services-grid {
+.menu-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row on large screens */
-    gap: 20px; /* Space between items */
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(10%, 1fr)); /* Smaller min size */
+    gap: 60px; /* Reduce gap for compact layout */
+    padding: 20px;
+    justify-content: center; /* Centers items if fewer boxes */
 }
-
-/* Service Box Round Styling */
-.service-box {
+        .menu-box {
+    width: 10vh; /* Small box width */
+    height: 20vh; /* Small box height */
+    background-color: white;
+    border-radius: 10px; /* Slight rounding */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%; /* 20% of the parent container (4 items per row on desktop) */
-    height: 30vh;
-    padding-bottom: 20%; /* Keep aspect ratio to form a perfect circle */
-    background-color: white;
-    border-radius: 50%; /* Circle layout */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
+    font-size: 14px; /* Adjust font size for smaller box */
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
 }
+        .menu-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.836);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.2s;
+        }
 
-/* Icon Styling for Round Box */
-.service-icon img {
-    width: 50%;
-    height: 50%;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
 
-/* Service Text */
-.service-text {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-}
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
-/* Media Query for Tablets and Phones */
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row on mobile */
-    }
+        .menu-item h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
 
-    .service-box {
-        width: 50%; /* 40% width on mobile for 2 items per row */
-        padding-bottom: 40%; /* Maintain aspect ratio */
-    }
-}
+        .menu-item p {
+            font-size: 1em;
+            color: #e74c3c;
+            font-weight: bold;
+        }
 
+        @media (max-width: 600px) {
+            .menu-item h3 {
+                font-size: 1em;
+            }
+
+            .menu-item p {
+                font-size: 0.9em;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            padding: 10px;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.721);
+        }
+
+
+        @media (max-width: 600px) {
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .menu-item h3 {
+                font-size: 1em;
+            }
+
+            .menu-item p {
+                font-size: 0.9em;
+            }
+        }
 
 
 
@@ -251,41 +277,33 @@
             </ul>
         </div>
     </div>
-    
+    <br>
+    <br>
 
         <!-- Services Section -->
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/static/icons/assignment.png" alt="Assignment Writing">
-                    </div>
-                    <div class="service-text">Assignment Writing</div>
-                </div>
-        
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/static/icons/project.png" alt="Project Assistance">
-                    </div>
-                    <div class="service-text">Project Assistance</div>
-                </div>
-        
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/static/icons/tutoring.png" alt="Online Tutoring">
-                    </div>
-                    <div class="service-text">Online Tutoring</div>
-                </div>
-        
-                <div class="service-box">
-                    <div class="service-icon">
-                        <img src="/static/icons/research.png" alt="Research Paper Writing">
-                    </div>
-                    <div class="service-text">Research Paper Writing</div>
-                </div>
+        <h2>Our Services</h2>
+        <div class="menu-container">
+           
+            <div class="menu-item">
+                <img src="\assignmentwritter.jpg" alt="Burger">
+                <h3>Assignment Writing</h3>
             </div>
-        </section>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200" alt="Pasta">
+                <h3>Pasta</h3>
+                <p>$50</p>
+            </div>
+            <div class="menu-item">
+                <img src="\paisa.jpg" alt="Paisa">
+                <h3>Affordable Pricing</h3>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200" alt="Salad">
+                <h3>Salad</h3>
+                <p>$10</p>
+            </div>
+          
+        </div>
         
 
         <!-- View Samples Section -->
