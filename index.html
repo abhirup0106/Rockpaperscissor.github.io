@@ -105,30 +105,36 @@
         }
 
         /* 🔹 Left Side: Image */
-        .image-section {
-            flex: 1;
-            background: url('\photo_1.jpg') no-repeat center center/cover;
-            background-attachment: fixed; 
-            background-position: left;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .image-section {
+    flex: 1;
+    background: url('photo_1.jpg') no-repeat center center/cover;
+    background-attachment: scroll; /* Changed from fixed to scroll */
+    background-position: left;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* 🔹 Right Side: Services with Background Image */
-        #services {
-            flex: 1;
-            padding: 50px 20px;
-            background: url('\photo_2.jpg') no-repeat center center/cover;
-            background-attachment: fixed; 
-            background-position: center;
-            background-repeat: no-repeat;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+#services {
+    flex: 1;
+    padding: 50px 20px;
+    background: url('photo_2.jpg') no-repeat center center/cover;
+    background-attachment: scroll; /* Changed from fixed to scroll */
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+        @media (max-width: 768px) {
+    .image-section, #services {
+        background-attachment: scroll; /* Override fixed for mobile */
+    }
+}
+
+
 
         h2 {
             font-size: 28px;
