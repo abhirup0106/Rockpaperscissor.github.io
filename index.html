@@ -15,36 +15,64 @@
             font-family: Arial, sans-serif;
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-        }
+       .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 1rem;
+    color: white;
+}
 
-        .menu {
-            display: none;
-            flex-direction: column;
-            background: #444;
-            position: absolute;
-            right: 10px;
-            top: 50px;
-            padding: 10px;
-        }
+.navbar h1 {
+    margin: 0;
+}
 
-        .menu a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+}
 
-        .menu-toggle {
-            font-size: 24px;
-            cursor: pointer;
-        }
+.nav-links li {
+    padding: 0 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #333;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
 
         .container {
             display: flex;
@@ -252,16 +280,17 @@
 </head>
 <body>
 
-    <div class="header">
-        <h1>AssignmentWalaa</h1>
-        <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
-        <div class="menu" id="menu">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="/pricing">Order Placing</a>
-            <a href="/login">Login</a>
-            <a href="/contact">Contact</a>
-        </div>
-    </div>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="container">
         <!-- Image Section -->
