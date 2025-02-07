@@ -15,62 +15,64 @@
             font-family: Arial, sans-serif;
         }
 
-       .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #333;
-    padding: 1rem;
-    color: white;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+       /* Default Menu Styling */
+.menu {
+    display: none;
+    flex-direction: column;
+    background: #444;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    padding: 10px;
+    z-index: 1000; /* Ensure it appears above everything */
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    min-width: 150px; /* Ensures a good size on mobile */
 }
 
-.navbar h1 {
-    margin: 0;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    padding: 0 1rem;
-}
-
-.nav-links a {
+/* Styling for Menu Items */
+.menu a {
     color: white;
     text-decoration: none;
+    padding: 10px;
+    display: block;
 }
 
-/* Mobile Navigation */
+/* Ensure the toggle button is above everything */
 .menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
+    font-size: 24px;
     cursor: pointer;
+    z-index: 1001; /* Higher than the menu */
+    position: relative;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        display: none;
-        position: absolute;
-        top: 60px;
+    .menu {
+        width: 100%; /* Make menu full width on mobile */
+        right: 0;
         left: 0;
-        width: 100%;
-        background: #333;
         text-align: center;
-        padding: 1rem 0;
     }
 
-    .nav-links.active {
-        display: flex;
+    .menu a {
+        padding: 15px;
+        font-size: 18px; /* Make text larger for touch screens */
     }
 
     .menu-toggle {
-        display: block;
+        position: absolute;
+        top: 10px;
+        right: 15px;
     }
 }
 
@@ -163,7 +165,7 @@
 
 /* Media Query for Mobile */
 .menu-container {
-    background-color:bisque;
+    background-color: bisque;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10%, 1fr)); /* Smaller min size */
     gap: 60px; /* Reduce gap for compact layout */
@@ -251,46 +253,53 @@
 
 
      
-
         .samples-table {
-            width: 100%;
-            text-align: center;
-        }
+    background-color: bisque;
+    border: 2px solid #333; /* Adds a border around the table */
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse; /* Ensures borders don't double up */
+}
 
-        .samples-table img {
-            width: 100px;
-            height: 100px;
-        }
+.samples-table td {
+    border: 2px solid #333; /* Adds a border to each cell */
+    padding: 10px; /* Adds some space inside each cell */
+}
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .menu {
-                width: 100%;
-            }
+.samples-table img {
+    width: 100px;
+    height: 100px;
+}
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .menu {
+        width: 100%;
+    }
 
-            .samples-table img {
-                width: 90%;
-            }
-        }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .samples-table img {
+        width: 90%;
+    }
+}
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="dashboard.html">Home</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="header">
+        <h1>AssignmentWalaa</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">&#x22EE;</span>
+        <div class="menu" id="menu">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="/pricing">Order Placing</a>
+            <a href="/login">Login</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Image Section -->
@@ -315,7 +324,7 @@
         <div class="menu-container">
            
             <div class="menu-item">
-                <img src="images/assignmentwritter.jpg" alt="assignment">
+                <img src="assignmentwritter.jpg" alt="Burger">
                 <h3>Assignment Writing</h3>
             </div>
             <div class="menu-item">
@@ -324,7 +333,7 @@
                 <p>$50</p>
             </div>
             <div class="menu-item">
-                <img src="images/paisa.jpg" alt="Paisa">
+                <img src="paisa.jpg" alt="Paisa">
                 <h3>Affordable Pricing</h3>
             </div>
             <div class="menu-item">
@@ -353,16 +362,27 @@
     </div>
 
     <script>
-          function toggleMenu() {
+        function toggleMenu() {
             var menu = document.getElementById("menu");
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
+            if (menu.style.display === "block") {
+                menu.style.display = "none"; // Hide the menu
             } else {
-                menu.style.display = "flex";
+                menu.style.display = "block"; // Show the menu
             }
         }
- 
+    
+        // Close the menu if user clicks outside it
+        document.addEventListener("click", function (event) {
+            var menu = document.getElementById("menu");
+            var toggle = document.querySelector(".menu-toggle");
+    
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                menu.style.display = "none"; // Close menu when clicking outside
+            }
+        });
     </script>
+    
+    
 
 </body>
 </html>
