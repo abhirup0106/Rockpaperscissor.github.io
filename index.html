@@ -324,10 +324,15 @@
     </div>
 
     <script>
-        function toggleMenu() {
+          function toggleMenu() {
             var menu = document.getElementById("menu");
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
         }
+ 
     </script>
 
 </body>
